@@ -1,7 +1,7 @@
 from nonebot.log import logger
 from nonebot import on_startup
 from typing import List, Dict, Union
-from pydantic import BaseModel, Extra
+from pydantic import BaseModel
 from pathlib import Path
 try:
     import ujson as json
@@ -44,10 +44,10 @@ FortuneThemesDict: Dict[str, List[str]] = {
     "amazing_grace": ["奇异恩典"]
 }
 
-class PluginConfig(BaseModel, extra=Extra.ignore):
-    fortune_path = Path(__file__).parent / "resource"
+class PluginConfig(BaseModel):
+    fortune_path: Path = Path(__file__).parent / "resource"
 
-class ThemesFlagConfig(BaseModel, extra=Extra.ignore):
+class ThemesFlagConfig(BaseModel):
     '''
         Switches of themes only valid in random divination.
         Make sure NOT ALL FALSE!

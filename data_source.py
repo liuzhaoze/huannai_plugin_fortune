@@ -1,6 +1,6 @@
 from typing import Optional, Union, Tuple, List, Dict
 from pathlib import Path
-import random
+import random, traceback
 try:
     import ujson as json
 except ModuleNotFoundError:
@@ -64,6 +64,7 @@ class FortuneManager:
             try:
                 image_file = drawing(gid, uid, theme, spec_path)
             except Exception:
+                traceback.print_exc()
                 return True, None
             
             self._end_data_handle(gid, uid)
