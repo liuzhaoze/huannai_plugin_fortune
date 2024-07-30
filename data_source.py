@@ -26,7 +26,7 @@ class FortuneManager:
         '''
         self._load_data()
         
-        return self._user_data[gid][uid]["is_divined"]
+        return False
     
     def specific_check(self, charac: str) -> Union[str, None]:
         '''
